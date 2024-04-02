@@ -9,7 +9,7 @@ export const CONFIG_API_PATH = {
 };
 
 export const AUTH_API_PATH = {
-  LOGIN: "auth/login",
+  LOGIN: "login",
   REGISTER: "auth/register",
   FORGET_PASSWORD: "auth/forget-password",
   RESET_PASSWORD: "auth/reset-password",

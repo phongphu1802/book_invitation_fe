@@ -2,6 +2,7 @@ import axios, { AxiosError, AxiosInstance, AxiosRequestHeaders } from "axios";
 import { assign, isEmpty, set } from "lodash";
 
 import { requestHelper } from "../Helpers";
+// eslint-disable-next-line import/no-cycle
 import errorHandler from "./errorHandler";
 import { authService } from "../../../App/Services";
 

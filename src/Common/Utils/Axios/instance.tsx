@@ -2,6 +2,7 @@ import axios from "axios";
 import { set } from "lodash";
 
 import { normalizeQuery } from "../Helpers/requestHelper";
+// eslint-disable-next-line import/no-cycle
 import errorHandler from "./errorHandler";
 import { getPageLanguage } from "../../../App/Services/Common/languageService";
 import { authService } from "../../../App/Services";

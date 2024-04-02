@@ -8,7 +8,7 @@ import {
   UserDataType,
 } from "../../Types/Common";
 // eslint-disable-next-line import/no-cycle
-import { Axios } from "../../../Common/Utils";
+import { Axios, axiosInstance } from "../../../Common/Utils";
 
 const fakeUserData: UserDataType = {
   id: 0,
@@ -21,9 +21,10 @@ const fakeUserData: UserDataType = {
   },
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const getMe = async (isRedirectWhenError?: boolean): Promise<UserDataType> => {
   // eslint-disable-next-line no-console
-  console.log("getMe", isRedirectWhenError);
+  // console.log("getMe", isRedirectWhenError);
 
   // const response = await Axios.instance.get(AUTH_API_PATH.ME, {
   //   params: {
@@ -37,12 +38,10 @@ const getMe = async (isRedirectWhenError?: boolean): Promise<UserDataType> => {
   return Promise.resolve(fakeUserData);
 };
 
-const loginWithEmailAndPassword = async (data: AuthLoginFormDataType) =>
-  new Promise<UserDataType>((resolve) => {
-    setTimeout(() => {
-      resolve({ ...fakeUserData, email: data.email });
-    }, 1000);
-  });
+const loginWithEmailAndPassword = async (data: AuthLoginFormDataType) => {
+  const temp = await axiosInstance.post(AUTH_API_PATH.LOGIN, data);
+  return temp;
+};
 
 const register = async (data: AuthRegisterFormDataType) =>
   new Promise<UserDataType>((resolve) => {
