@@ -2,6 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 
 import { ConfigKeyEnum, UserRoleEnum } from "../Enums";
 import { RootState } from "../store";
+import { LayoutSidebarTypeEnum } from "../../Common/Layout/constant";
 
 export const logoConfigSelector = createSelector(
   (state: RootState) => state.common.configs.find((config) => config.key === ConfigKeyEnum.LOGO),
@@ -27,6 +28,25 @@ export const layoutSidebarSelector = (id: string) =>
     (state: RootState) => state.common.layoutSidebars.find((sidebar) => sidebar.id === id),
     (sidebar) => sidebar,
   );
+
+export const layoutSidebarTypeSelector = (id: string) =>
+  createSelector(layoutSidebarSelector(id), (layoutSidebar) => {
+    let isJira = false;
+    let isSEM = false;
+    let isGitlab = false;
+
+    if (layoutSidebar) {
+      isJira = layoutSidebar.type === LayoutSidebarTypeEnum.JIRA;
+      isSEM = layoutSidebar.type === LayoutSidebarTypeEnum.SEM;
+      isGitlab = layoutSidebar.type === LayoutSidebarTypeEnum.GITLAB;
+    }
+
+    return {
+      isJira,
+      isSEM,
+      isGitlab,
+    };
+  });
 
 export const layoutSidebarsSelector = (ids: string[]) =>
   createSelector(

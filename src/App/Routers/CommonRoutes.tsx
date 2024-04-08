@@ -9,7 +9,7 @@ import { setConfig, setUser } from "../Slices/commonSlice";
 import { ErrorRoutes } from "../../Common/Features";
 import { useDispatch, useSelector } from "../../Common/Hooks";
 
-const AuthRoutes = lazy(() => import("../../Common/Features/Auth/Routes/AuthRoutes"));
+const AuthRoutes = lazy(() => import("../../Common/Features/Auth/Routers/AuthRoutes"));
 const PrivateRoutes = lazy(() => import("./PrivateRoutes"));
 
 const CommonRoutes = () => {
