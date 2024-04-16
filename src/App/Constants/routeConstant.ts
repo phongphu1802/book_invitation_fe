@@ -11,6 +11,10 @@ export const MY_PATH = {
 
 export const ADMIN_PATH = {
   HOME: "/admin",
+  USER: "/admin/user",
+  PRODUCT: "/admin/product",
+  CATEGORY: "/admin/category",
+  ORDER: "/admin/order",
 };
 
 export const SYSTEM_PATH = {

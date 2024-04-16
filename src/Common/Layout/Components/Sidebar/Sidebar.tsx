@@ -15,9 +15,13 @@ import { matchPath, useLocation } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import { useTimeout } from "usehooks-ts";
 
-// import SidebarLink from "./Link/Link";
+import { BaseLayoutSidebarProps } from "../../interface";
 import { LayoutSidebarTypeEnum } from "../../constant";
 import { useDispatch, useSelector } from "../../../Hooks";
+import {
+  layoutSidebarIsCollapsedSelector,
+  layoutSidebarTypeSelector,
+} from "../../../../App/Selectors/commonSelector";
 import { getTwScreenWidth } from "../../../Utils/Helpers/commonHelper";
 import {
   addSidebar,
@@ -25,24 +29,18 @@ import {
   expandLayoutSidebar,
   toggleLayoutSidebar,
 } from "../../../../App/Slices/commonSlice";
-import {
-  layoutSidebarIsCollapsedSelector,
-  layoutSidebarTypeSelector,
-} from "../../../../App/Selectors/commonSelector";
-import { BaseLayoutSidebarProps } from "../../interface";
+import { Logo } from "../../../Components";
 
 interface LayoutSidebarProps extends BaseLayoutSidebarProps {
   children?: ReactElement[] | ReactElement;
   id: string;
   type?: LayoutSidebarTypeEnum;
-  // sidebarLinkClassName?: string;
 }
 
 const LayoutSidebar = ({
   children,
   className,
   containerClassName,
-  // sidebarLinkClassName,
   defaultCollapsedPaths,
   defaultOpeningGroups,
   type = LayoutSidebarTypeEnum.GITLAB,
@@ -184,14 +182,12 @@ const LayoutSidebar = ({
 
   return (
     <div
-      className={twMerge(
-        "fixed bottom-0 left-0 top-0 z-40 border-r-2 border-gray-100 bg-gray-50 pt-20",
-        className,
-      )}
+      className={twMerge("fixed bottom-0 left-0 top-0 z-40 border-r-2 border-gray-100 bg-gray-50", className)}
       style={{ height: `calc(100vh - ${visibleFooterHeight}px)` }}
       onMouseEnter={handleHoverSidebar}
       onMouseLeave={handleLeaveSidebar}
     >
+      <Logo id={sidebarId} />
       <div
         className={twMerge("group/sidebar relative h-full w-72 bg-gray-50", containerCollapsedClassName)}
         ref={ref}
@@ -215,7 +211,6 @@ const LayoutSidebar = ({
                 onOpen: handleOpenSidebarGroup,
               }),
             )}
-          {/* <SidebarLink className={sidebarLinkClassName} /> */}
         </div>
       </div>
       <div

@@ -1,8 +1,8 @@
-import { DefaultTFuncReturn } from "i18next";
+// import { DefaultTFuncReturn } from "i18next";
 import { memo } from "react";
 
 export interface LayoutContentWrapperHeaderProps {
-  title?: JSX.Element | DefaultTFuncReturn;
+  title?: JSX.Element;
   action?: JSX.Element;
 }
 
