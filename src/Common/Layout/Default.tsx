@@ -1,7 +1,7 @@
 import { ReactNode, memo } from "react";
 
-import LayoutFooter from "./Components/Footer/Footer";
-import LayoutHeader from "./Components/Header/Header";
+// import LayoutFooter from "./Components/Footer/Footer";
+// import LayoutHeader from "./Components/Header/Header";
 
 interface DefaultLayoutProps {
   children: ReactNode | ReactNode[];
@@ -11,9 +11,9 @@ interface DefaultLayoutProps {
 const LayoutDefault = ({ children }: DefaultLayoutProps) => {
   return (
     <>
-      <LayoutHeader />
+      {/* <LayoutHeader /> */}
       {children}
-      <LayoutFooter />
+      {/* <LayoutFooter /> */}
     </>
   );
 };
