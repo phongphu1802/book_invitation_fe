@@ -69,8 +69,8 @@ const LayoutSidebarItem = ({
       <Link
         to={to}
         className={twMerge(
-          "group relative my-1 flex items-center rounded-md py-3 font-[450] before:absolute before:left-0 before:top-1/2 before:h-6 before:w-1 before:-translate-y-1/2 before:rounded-sm before:bg-primary-800 hover:bg-gray-200 hover:text-primary-600 xs:px-7 md:px-6",
-          isActivated ? "bg-gray-200 text-primary-600 before:block" : "text-slate-700 before:hidden",
+          "group relative my-1 flex items-center rounded-r-full py-1.5 font-[450] before:absolute before:left-0 before:top-1/2 before:h-6 before:w-1 before:-translate-y-1/2 before:rounded-sm before:bg-primary-800 hover:bg-gray-200 hover:text-primary-600 xs:px-7 md:px-6",
+          isActivated ? "bg-white/50 text-primary-600 before:block" : "text-white before:hidden",
           isCollapsed && isSEM && "flex-col justify-center pt-4 text-center md:px-2",
           isCollapsed && isGitlab && !isChild && "h-10 w-full items-center justify-start md:px-2.5 md:py-0",
           isChild && "md:py-2 md:pl-3 md:pr-4",

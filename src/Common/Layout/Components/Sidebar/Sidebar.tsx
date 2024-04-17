@@ -182,23 +182,20 @@ const LayoutSidebar = ({
 
   return (
     <div
-      className={twMerge("fixed bottom-0 left-0 top-0 z-40 border-r-2 border-gray-100 bg-gray-50", className)}
+      className={twMerge("fixed bottom-0 left-0 top-0 z-40 border-r-2 border-transparent", className)}
       style={{ height: `calc(100vh - ${visibleFooterHeight}px)` }}
       onMouseEnter={handleHoverSidebar}
       onMouseLeave={handleLeaveSidebar}
     >
       <Logo id={sidebarId} />
-      <div
-        className={twMerge("group/sidebar relative h-full w-72 bg-gray-50", containerCollapsedClassName)}
-        ref={ref}
-      >
+      <div className={twMerge("group/sidebar relative h-full w-72", containerCollapsedClassName)} ref={ref}>
         <div
           className={twMerge(
-            "h-full w-full px-4 py-5 scrollbar-none hover:overflow-clip hover:overflow-y-auto",
+            "h-full w-full pr-4 py-5 scrollbar-none hover:overflow-clip hover:overflow-y-auto",
             containerClassName,
             isCollapsed && isJira && "opacity-0 group-hover/sidebar:opacity-100",
-            isCollapsed && isSEM && "p-3",
-            isCollapsed && isGitlab && "overflow-visible px-2 hover:overflow-visible",
+            isCollapsed && isSEM && "py-3 pr-3",
+            isCollapsed && isGitlab && "overflow-visible pr-2 hover:overflow-visible",
           )}
         >
           {children &&
@@ -215,7 +212,7 @@ const LayoutSidebar = ({
       </div>
       <div
         className={twMerge(
-          "absolute -right-3.5 top-28 z-10 hidden h-7 w-7 cursor-pointer select-none items-center justify-center rounded-full border-2 border-gray-100 bg-white opacity-0 shadow-lg hover:bg-gray-50 lg:flex",
+          "absolute -right-3.5 top-28 z-10 hidden h-7 w-7 cursor-pointer select-none items-center justify-center rounded-full border-2 border-gray-100 bg-white/80 opacity-0 shadow-lg hover:bg-gray-50 lg:flex",
           (isHoveringSidebar || (isCollapsed && isJira)) && "opacity-100",
         )}
         role="button"

@@ -73,7 +73,11 @@ const LayoutContainer = ({
     <>
       {!isMatchExcludeSidebarPaths && sidebar}
       <div
-        className={twMerge("flex flex-col md:min-h-fit-layout", isMatchExcludeSidebarPaths && "md:ml-0")}
+        className={twMerge(
+          "flex flex-col h-screen",
+          "bg-[url('https://apis.book-invitation.encacap.com/images/systems/1713265679.jpg')]",
+          isMatchExcludeSidebarPaths && "md:ml-0",
+        )}
         ref={containerRef}
       >
         {children}

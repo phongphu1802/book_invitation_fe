@@ -33,6 +33,7 @@ interface LayoutContentWrapperBaseProps
   className?: string;
   isShowHeader?: boolean;
   onChangeTab?: (id: string) => void;
+  id: string;
 }
 
 interface LayoutContentWrapperWithTabProps extends Omit<LayoutContentWrapperTabProps, "onChange"> {

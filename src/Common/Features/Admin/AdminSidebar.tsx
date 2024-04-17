@@ -8,9 +8,15 @@ import { ADMIN_PATH } from "../../../App/Constants";
 import { LayoutSidebar } from "../../Layout";
 
 const AdminSidebar = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("admin");
   return (
     <LayoutSidebar id="adminSidebar">
+      <LayoutSidebarItem
+        id="dashboard"
+        icon={<MdOutlineShoppingCart />}
+        text={t("dashboard")}
+        to={ADMIN_PATH.DASHBOARD}
+      />
       <LayoutSidebarItem
         id="order"
         icon={<MdOutlineShoppingCart />}

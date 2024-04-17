@@ -15,6 +15,7 @@ export const ADMIN_PATH = {
   PRODUCT: "/admin/product",
   CATEGORY: "/admin/category",
   ORDER: "/admin/order",
+  DASHBOARD: "/admin/dashboard",
 };
 
 export const SYSTEM_PATH = {

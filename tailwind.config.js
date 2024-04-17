@@ -36,7 +36,7 @@ module.exports = {
         15: "3.75rem",
         120: "30rem",
         65: "43.25rem",
-        "fit-layout": "calc(100vh - 80px)",
+        "fit-layout": "calc(100vh - 72px)",
       },
       minHeight: {
         "fit-layout": "calc(100vh - 80px)",
@@ -59,7 +59,8 @@ module.exports = {
         4.5: "18px",
         128: "32rem",
         160: "40rem",
-        "fit-layout": "calc(100% - 288px)",
+        "max-layout": "calc(100% - 288px)",
+        "min-layout": "calc(100% - 56px)",
       },
       boxShadow: {
         ...defaultTheme.boxShadow,

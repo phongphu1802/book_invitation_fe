@@ -10,6 +10,8 @@ import { LayoutDefault } from "./Common/Layout";
 import CommonRoutes from "./App/Routers/CommonRoutes";
 import { store } from "./App/store";
 
+import "./locales/config";
+
 const App = () => {
   return (
     <Provider store={store}>
