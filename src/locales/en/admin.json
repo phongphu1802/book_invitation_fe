@@ -1,3 +1,9 @@
 {
-  "hello": "Hello"
+  "hello": "Hello",
+  "categoryManagement": "Category Management",
+  "addCategory": "Add Category",
+  "dashboard": "Dashboard",
+  "order": "Order",
+  "product": "Product",
+  "category": "Category"
 }

@@ -14,3 +14,8 @@ export enum SelectPositionEnum {
   BOTTOM_LEFT = "bottom_left",
   BOTTOM_RIGHT = "bottom_right",
 }
+
+export enum TableImageColumnTypeEnum {
+  ROUNDED = "rounded",
+  BOX = "box",
+}
