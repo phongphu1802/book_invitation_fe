@@ -2,6 +2,7 @@ import { Header } from "@tanstack/react-table";
 import { MutableRefObject, memo } from "react";
 
 import { TableDataGenericType } from "../interface";
+// eslint-disable-next-line import/no-cycle
 import TableHeaderFilter from "./TableHeaderFilter";
 
 export interface TableRefType {

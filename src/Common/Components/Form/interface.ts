@@ -12,6 +12,7 @@ import { AsyncProps as ReactSelectAsyncProps } from "react-select/async";
 
 export interface UncontrolledInputSkeletonProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
   children?: ReactNode;
+  classNameLabel?: string;
   name?: string;
   size?: InputSizeType;
   label?: string;
