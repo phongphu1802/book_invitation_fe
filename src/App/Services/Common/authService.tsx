@@ -43,22 +43,10 @@ const loginWithEmailAndPassword = async (data: AuthLoginFormDataType) => {
   return response.data.data;
 };
 
-const register = async (data: AuthRegisterFormDataType) =>
-  new Promise<UserDataType>((resolve) => {
-    setTimeout(
-      () =>
-        resolve({
-          ...data,
-          id: 1,
-          name: data.name,
-          role: {
-            id: 2,
-            name: UserRoleEnum.USER,
-          },
-        }),
-      1000,
-    );
-  });
+const register = async (data: AuthRegisterFormDataType) => {
+  const response = await axiosInstance.post(AUTH_API_PATH.REGISTER, data);
+  return response.data.data;
+};
 
 const forgetPassword = async (email: string) =>
   new Promise((resolve) => {

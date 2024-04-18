@@ -12,7 +12,6 @@ export interface AuthRegisterFormDataType {
   name: string;
   email: string;
   password: string;
-  password_confirmation: string;
   username: string;
 }
 
