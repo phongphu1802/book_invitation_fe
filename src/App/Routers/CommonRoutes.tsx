@@ -8,8 +8,8 @@ import { authService, configService } from "../Services";
 import { setConfig, setUser } from "../Slices/commonSlice";
 import { ErrorRoutes } from "../../Common/Features";
 import { useDispatch, useSelector } from "../../Common/Hooks";
+import AuthRoutes from "../../Common/Features/Auth/Routers/AuthRoutes";
 
-const AuthRoutes = lazy(() => import("../../Common/Features/Auth/Routers/AuthRoutes"));
 const PrivateRoutes = lazy(() => import("./PrivateRoutes"));
 
 const CommonRoutes = () => {

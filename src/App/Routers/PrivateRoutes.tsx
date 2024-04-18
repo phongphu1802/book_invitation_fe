@@ -3,8 +3,9 @@ import { Route, Routes } from "react-router-dom";
 
 // import { userRoleSelector } from "../Selectors/commonSelector";
 // import { useSelector } from "../../Common/Hooks";
-import HomeRouter from "../../Common/Features/Home/Routers/HomeRouter";
+// import HomeRouter from "../../Common/Features/Home/Routers/HomeRouter";
 import AdminRouter from "../../Common/Features/Admin/Routers/AdminRouter";
+import Login from "../../Common/Features/Auth/Login/Login";
 
 const PrivateRoutes = () => {
   // const { isAdmin } = useSelector(userRoleSelector);
@@ -13,7 +14,7 @@ const PrivateRoutes = () => {
     <Routes>
       {/* {isAdmin && <Route path="admin/*" element={<AdminRouter />} />} */}
       <Route path="admin/*" element={<AdminRouter />} />
-      <Route path="/*" element={<HomeRouter />} />
+      <Route path="/" element={<Login />} />
     </Routes>
   );
 };

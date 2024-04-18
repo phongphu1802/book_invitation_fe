@@ -28,6 +28,7 @@ import TableContentBody from "./TableContentBody/TableContentBody";
 import TableContentHeader from "./TableContentHeader/TableContentHeader";
 import TableFooter from "./TableFooter";
 import TableFooterInfinity from "./TableFooterInfinity/TableFooterInfinity";
+// eslint-disable-next-line import/no-cycle
 import TableHeader from "./TableHeader/TableHeader";
 import { useConfig, useWatchParam } from "../../Hooks";
 import { ConfigKeyEnum } from "../../../App/Enums";

@@ -39,8 +39,8 @@ const getMe = async (isRedirectWhenError?: boolean): Promise<UserDataType> => {
 };
 
 const loginWithEmailAndPassword = async (data: AuthLoginFormDataType) => {
-  const temp = await axiosInstance.post(AUTH_API_PATH.LOGIN, data);
-  return temp;
+  const response = await axiosInstance.post(AUTH_API_PATH.LOGIN, data);
+  return response.data.data;
 };
 
 const register = async (data: AuthRegisterFormDataType) =>
@@ -107,7 +107,7 @@ const getAccessToken = () => {
     return null;
   }
 
-  return authToken.accessToken;
+  return authToken.token;
 };
 
 const getRefreshToken = () => {

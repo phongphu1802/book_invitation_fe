@@ -5,12 +5,12 @@ import { Link, useSearchParams } from "react-router-dom";
 import { AUTH_PATH } from "../../../../../App/Constants";
 
 const LoginFormFooter = () => {
-  const { t } = useTranslation("company");
+  const { t } = useTranslation("auth");
 
   const [searchParams] = useSearchParams();
 
   return (
-    <>
+    <div className="text-center text-white">
       {t("doNotHaveAccount")}
       <Link
         to={`${AUTH_PATH.REGISTER}?redirect=${encodeURIComponent(searchParams.get("redirect") ?? "")}`}
@@ -18,7 +18,7 @@ const LoginFormFooter = () => {
       >
         {t("createNow")}
       </Link>
-    </>
+    </div>
   );
 };
 

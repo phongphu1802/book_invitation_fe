@@ -1,5 +1,5 @@
 export interface AuthTokenType {
-  accessToken: string;
+  token: string;
   refreshToken: string;
 }
 
@@ -12,6 +12,7 @@ export interface AuthRegisterFormDataType {
   name: string;
   email: string;
   password: string;
+  password_confirmation: string;
   username: string;
 }
 
