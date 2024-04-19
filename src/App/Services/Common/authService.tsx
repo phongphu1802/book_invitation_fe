@@ -1,4 +1,3 @@
-import { UserRoleEnum } from "../../Enums";
 import { AUTH_API_PATH } from "../../Constants";
 import {
   AuthLoginFormDataType,
@@ -10,32 +9,15 @@ import {
 // eslint-disable-next-line import/no-cycle
 import { Axios, axiosInstance } from "../../../Common/Utils";
 
-const fakeUserData: UserDataType = {
-  id: 0,
-  email: "encacap_0@gmail.com",
-  name: "Trần Văn E",
-  username: "",
-  role: {
-    id: 1,
-    name: UserRoleEnum.USER,
-  },
-};
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const getMe = async (isRedirectWhenError?: boolean): Promise<UserDataType> => {
-  // eslint-disable-next-line no-console
-  // console.log("getMe", isRedirectWhenError);
+  const response = await axiosInstance.get(AUTH_API_PATH.ME, {
+    params: {
+      expand: ["user__role_uuid"],
+    },
+    redirectWhenError: isRedirectWhenError,
+  });
 
-  // const response = await Axios.instance.get(AUTH_API_PATH.ME, {
-  //   params: {
-  //     expand: ["role", "city", "country"],
-  //   },
-  //   redirectWhenError: isRedirectWhenError,
-  // });
-
-  // return response.data.data;
-
-  return Promise.resolve(fakeUserData);
+  return response.data.data;
 };
 
 const loginWithEmailAndPassword = async (data: AuthLoginFormDataType) => {

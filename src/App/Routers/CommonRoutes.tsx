@@ -9,6 +9,8 @@ import { setConfig, setUser } from "../Slices/commonSlice";
 import { ErrorRoutes } from "../../Common/Features";
 import { useDispatch, useSelector } from "../../Common/Hooks";
 import AuthRoutes from "../../Common/Features/Auth/Routers/AuthRoutes";
+import { UserRoleEnum } from "../Enums";
+import { UserDataType } from "../Types/Common";
 
 const PrivateRoutes = lazy(() => import("./PrivateRoutes"));
 
@@ -28,6 +30,11 @@ const CommonRoutes = () => {
 
     dispatch(setConfig(data));
   }, [dispatch]);
+
+  const urlRedirect = useCallback((userCurrent: UserDataType) => {
+    if (userCurrent?.role?.name === UserRoleEnum.USER) return "/my";
+    return `/${userCurrent?.role?.name}`;
+  }, []);
 
   useLayoutEffect(() => {
     if (user?.id) {
@@ -49,6 +56,7 @@ const CommonRoutes = () => {
       authService
         .getMe(false)
         .then((data) => {
+          navigate(urlRedirect(data));
           return dispatch(setUser(data));
         })
         .catch(() => {
@@ -63,7 +71,7 @@ const CommonRoutes = () => {
           setIsLoading(false);
         });
     }
-  }, [dispatch, navigate, excludeGetUserPaths, excludeRedirectPaths, user]);
+  }, [dispatch, navigate, urlRedirect, excludeGetUserPaths, excludeRedirectPaths, user]);
 
   useLayoutEffect(() => {
     getPublicConfigs();

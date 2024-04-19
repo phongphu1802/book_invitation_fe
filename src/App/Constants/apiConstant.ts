@@ -10,11 +10,11 @@ export const CONFIG_API_PATH = {
 
 export const AUTH_API_PATH = {
   LOGIN: "login",
-  REGISTER: "auth/register",
+  REGISTER: "register",
   FORGET_PASSWORD: "auth/forget-password",
   RESET_PASSWORD: "auth/reset-password",
   REFRESH_TOKEN: "v1/access-token",
-  ME: "auth/me",
+  ME: "me",
 };
 
 export const COMMON_API_PATH = {

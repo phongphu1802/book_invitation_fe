@@ -28,7 +28,8 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (request) => {
-    set(request, "headers.Authorization", `Bearer ${authService.getAccessToken()}`);
+    if (authService.getAccessToken())
+      set(request, "headers.Authorization", `Bearer ${authService.getAccessToken()}`);
 
     const { params, url } = request;
 
