@@ -11,3 +11,4 @@ export * from "./Loading";
 export * from "./Table";
 export * from "./Logo";
 export * from "./ToastMessage";
+export * from "./Modal";
