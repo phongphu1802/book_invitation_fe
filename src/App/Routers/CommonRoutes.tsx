@@ -19,6 +19,7 @@ const CommonRoutes = () => {
   const user = useSelector((state) => state.common.user);
   const { pathname } = window.location;
   const excludeRedirectPaths = useMemo(() => ["/", "error/*", "docs/*"], []);
+  const excludeRedirectNotLoginPaths = useMemo(() => ["/", "admin/*", "my/*", "system/*"], []);
   const excludeGetUserPaths = useMemo(() => [], []);
 
   const dispatch = useDispatch();
@@ -31,12 +32,15 @@ const CommonRoutes = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (!authService.getAccessToken()) {
-      setIsLoading(false);
+    if (!authService.getAccessToken()) setIsLoading(false);
+    if (
+      !authService.getAccessToken() &&
+      excludeRedirectNotLoginPaths.some((path) => matchPath(path, pathname))
+    ) {
       const from = pathname;
       navigate(`${AUTH_PATH.LOGIN}?redirect=${encodeURIComponent(from)}`);
     }
-  }, [navigate, pathname]);
+  }, [excludeRedirectNotLoginPaths, navigate, pathname]);
 
   useLayoutEffect(() => {
     if (user?.id) {
