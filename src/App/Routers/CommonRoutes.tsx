@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { lazy, memo, useCallback, useLayoutEffect, useMemo, useState } from "react";
+import { lazy, memo, useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { Route, Routes, matchPath, useNavigate } from "react-router-dom";
 
 import { LoadingOverlay } from "../../Common/Components";
@@ -9,6 +9,7 @@ import { setConfig, setUser } from "../Slices/commonSlice";
 import { ErrorRoutes } from "../../Common/Features";
 import { useDispatch, useSelector } from "../../Common/Hooks";
 import AuthRoutes from "../../Common/Features/Auth/Routers/AuthRoutes";
+import { urlRedirect } from "../../Common/Utils/Helpers/commonHelper";
 
 const PrivateRoutes = lazy(() => import("./PrivateRoutes"));
 
@@ -16,8 +17,9 @@ const CommonRoutes = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const user = useSelector((state) => state.common.user);
-
-  const excludeRedirectPaths = useMemo(() => ["/", "error/*", "auth/*", "docs/*"], []);
+  const { pathname } = window.location;
+  const excludeRedirectPaths = useMemo(() => ["/", "error/*", "docs/*"], []);
+  const excludeRedirectNotLoginPaths = useMemo(() => ["/", "admin/*", "my/*", "system/*"], []);
   const excludeGetUserPaths = useMemo(() => [], []);
 
   const dispatch = useDispatch();
@@ -29,13 +31,22 @@ const CommonRoutes = () => {
     dispatch(setConfig(data));
   }, [dispatch]);
 
+  useEffect(() => {
+    if (!authService.getAccessToken()) setIsLoading(false);
+    if (
+      !authService.getAccessToken() &&
+      excludeRedirectNotLoginPaths.some((path) => matchPath(path, pathname))
+    ) {
+      const from = pathname;
+      navigate(`${AUTH_PATH.LOGIN}?redirect=${encodeURIComponent(from)}`);
+    }
+  }, [excludeRedirectNotLoginPaths, navigate, pathname]);
+
   useLayoutEffect(() => {
     if (user?.id) {
       setIsLoading(false);
       return;
     }
-
-    const { pathname } = window.location;
 
     const isMatchedExcludeRedirectPath = excludeRedirectPaths.some((path) => matchPath(path, pathname));
     const isMatchedGetUserExcludePath = excludeGetUserPaths.some((path) => matchPath(path, pathname));
@@ -45,10 +56,11 @@ const CommonRoutes = () => {
       return;
     }
 
-    if (_.isEmpty(user)) {
+    if (_.isEmpty(user) && authService.getAccessToken()) {
       authService
         .getMe(false)
         .then((data) => {
+          navigate(urlRedirect(data));
           return dispatch(setUser(data));
         })
         .catch(() => {
@@ -63,7 +75,7 @@ const CommonRoutes = () => {
           setIsLoading(false);
         });
     }
-  }, [dispatch, navigate, excludeGetUserPaths, excludeRedirectPaths, user]);
+  }, [dispatch, navigate, excludeGetUserPaths, excludeRedirectPaths, user, pathname]);
 
   useLayoutEffect(() => {
     getPublicConfigs();

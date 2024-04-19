@@ -62,10 +62,12 @@ export const userRoleSelector = createSelector(
   (user) => {
     const isSystem = user?.role?.name === UserRoleEnum.SYSTEM;
     const isAdmin = user?.role?.name === UserRoleEnum.ADMIN;
+    const isUser = user?.role?.name === UserRoleEnum.USER;
 
     return {
       isSystem,
       isAdmin,
+      isUser,
     };
   },
 );

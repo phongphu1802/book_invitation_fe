@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
@@ -22,6 +22,7 @@ const Register = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [generalError, setGeneralError] = useState<AuthFormGeneralError | null>(null);
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const {
     control,
@@ -43,6 +44,7 @@ const Register = () => {
         const { token } = userData.data;
         // const redirectURL = generateAuthRedirectURL([userData.role.name], searchParams.get("redirect"));
         setAuthToken(token);
+        navigate("/");
       })
       .catch((err) => {
         const { status } = err.response.data;

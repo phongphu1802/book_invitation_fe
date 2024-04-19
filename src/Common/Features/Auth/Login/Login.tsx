@@ -35,6 +35,11 @@ const Login = () => {
 
   const email = watch("email");
 
+  // const urlRedirect = useCallback((user: UserDataType) => {
+  //   if (user?.role?.name === UserRoleEnum.USER) return "/my";
+  //   return `/${user?.role?.name}`;
+  // }, []);
+
   const handleSubmit = useFormSubmit(async (formData) => {
     setIsSubmitting(true);
     try {
@@ -48,24 +53,6 @@ const Login = () => {
     } finally {
       setIsSubmitting(false);
     }
-
-    // authService
-    //   .loginWithEmailAndPassword(formData)
-    //   .then((userData) => {
-    //     const { token } = userData.data;
-    //     console.log(token);
-    //     // const redirectURL = generateAuthRedirectURL([userData.role.name], searchParams.get("redirect"));
-    //     // setAuthToken(token);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     if (err) {
-    //       setGeneralError({ ...err });
-    //     }
-    //   })
-    //   .finally(() => {
-    //     setIsSubmitting(false);
-    //   });
   });
 
   useDocumentTitle(t("login"));

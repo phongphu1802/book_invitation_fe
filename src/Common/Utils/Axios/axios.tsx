@@ -29,8 +29,10 @@ export default class Axios {
       const headers: Partial<AxiosRequestHeaders> = {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: `Bearer ${authService.getAccessToken()}`,
       };
+
+      if (authService.getAccessToken())
+        Object.assign(headers, { Authorization: `Bearer ${authService.getAccessToken()}` });
 
       assign(headers, headerOptions);
       set(request, "headers", headers);
