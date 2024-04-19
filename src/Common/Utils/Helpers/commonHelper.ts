@@ -7,7 +7,8 @@ import tailwindDefaultTheme from "tailwindcss/defaultTheme";
 import resolveConfig from "tailwindcss/resolveConfig";
 import { object } from "yup";
 
-import { FormValidationSchemaShapeType } from "../../../App/Types/Common";
+import { FormValidationSchemaShapeType, UserDataType } from "../../../App/Types/Common";
+import { UserRoleEnum } from "../../../App/Enums";
 
 /* eslint-disable no-param-reassign */
 const snakelikeNestedObjectKey = (obj: Record<string, unknown>) => {
@@ -98,7 +99,13 @@ const beautifyFileSize = (size: number) => {
   return `${(size / 1024 ** i).toFixed(2)} ${["B", "kB", "MB", "GB", "TB"][i]}`;
 };
 
+const urlRedirect = (userCurrent: UserDataType) => {
+  if (userCurrent?.role?.name === UserRoleEnum.USER) return "/my";
+  return `/${userCurrent?.role?.name}`;
+};
+
 export {
+  urlRedirect,
   beautifyFileSize,
   beautifyNumber,
   checkEmptyObject,
