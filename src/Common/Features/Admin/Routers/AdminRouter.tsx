@@ -13,6 +13,7 @@ const AdminRouter = () => {
   return (
     <LayoutContainer sidebar={<AdminSidebar />} sidebarIds={[]}>
       <Routes>
+        <Route path="/" element={<Dashboard />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="category" element={<Category />} />
         <Route path="order" element={<Order />} />
