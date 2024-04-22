@@ -7,5 +7,6 @@
   "confirm": "Confirm",
   "error": "Error",
   "warning": "Warning",
-  "close": "Close"
+  "close": "Close",
+  "uploadError": "Upload Failed"
 }
