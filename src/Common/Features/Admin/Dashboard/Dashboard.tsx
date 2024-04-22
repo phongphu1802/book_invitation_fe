@@ -7,7 +7,7 @@ const Dashboard = () => {
 
   return (
     <LayoutContentWrapper title={<>{t("dashboard")}</>} id="adminSidebar">
-      <div>dde</div>
+      <div className="flex items-center justify-center w-full text-3xl font-bold h-fit-table">Empty page</div>
     </LayoutContentWrapper>
   );
 };
