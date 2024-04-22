@@ -26,3 +26,15 @@ export const CATEGORY_API_PATH = {
   CATEGORY: "category",
   CATEGORY_ID: (id: number) => `category/${id}`,
 };
+
+export const USER_API_PATH = {
+  USERS: "users",
+  USER: "user",
+  USER_ID: (id: number) => `user/${id}`,
+};
+
+export const ROLE_API_PATH = {
+  ROLES: "roles",
+  ROLE: "role",
+  ROLE_ID: (id: number) => `role/${id}`,
+};

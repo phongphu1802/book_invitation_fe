@@ -1,17 +1,135 @@
+@import "react-tooltip/dist/react-tooltip.css";
+@import "react-datepicker/dist/react-datepicker.css";
+@import "react-toastify/dist/ReactToastify.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer utilities {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    @apply appearance-none;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  @apply font-source-sans-pro text-slate-700;
+}
+
+*:not([class]) {
+  ::-webkit-scrollbar {
+    @apply w-4 bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-black border-4 border-gray-100 border-solid rounded-full bg-opacity-60 hover:bg-opacity-40;
+  }
+}
+
+.overflow-overlay::-webkit-scrollbar {
+  width: 16px;
+}
+
+.Toastify__toast-container.Toastify__toast-container--top-right {
+  @apply p-0 shadow-none w-96;
+
+  .Toastify__toast {
+    @apply relative px-4 py-2 overflow-hidden rounded-lg;
+  }
+
+  .Toastify__toast-body {
+    @apply pr-6;
+  }
+
+  .Toastify__close-button {
+    @apply absolute z-0 flex items-center justify-center w-6 h-6 pl-px rounded-full right-4 top-5 text-slate-700;
+
+    svg {
+      @apply w-3;
+    }
+  }
+
+  .Toastify__progress-bar.Toastify__progress-bar--animated {
+    @apply absolute top-0 bottom-0 right-0 h-full -z-10;
+
+    &.Toastify__progress-bar--success {
+      @apply bg-green-50;
+    }
+
+    &.Toastify__progress-bar--error {
+      @apply bg-red-100;
+    }
+  }
+}
+
+.react-datepicker {
+  &__header,
+  &__month {
+    @apply p-2;
+  }
+
+  &__header:not(.react-datepicker__header--has-time-select) {
+    @apply bg-white border-gray-100 rounded-none;
+  }
+
+  &__navigation-icon {
+    @apply top-1.5 before:border-blue-500;
+  }
+
+  &__current-month,
+  &__day-name {
+    @apply text-blue-500;
+  }
+
+  &__month {
+    @apply m-0;
+  }
+
+  &__day--in-selecting-range:not(
+      .react-datepicker__day--in-range,
+      .react-datepicker__month-text--in-range,
+      .react-datepicker__quarter-text--in-range,
+      .react-datepicker__year-text--in-range
+    ) {
+    @apply text-black bg-blue-100 hover:bg-blue-100;
+  }
+
+  &__day-name,
+  &__day {
+    @apply text-xs leading-7 w-7;
+
+    &--in-selecting-range,
+    &--in-range {
+      @apply text-black bg-blue-100 hover:bg-blue-100;
+    }
+
+    &--selected,
+    &--range-end {
+      @apply bg-blue-500 font-medium text-white hover:rounded-full hover:bg-blue-500 hover:text-white !important;
+    }
+
+    &--selected {
+      @apply rounded-l-full;
+    }
+
+    &--range-end {
+      @apply rounded-r-full;
+    }
+  }
+}
+
+.spinner {
+  @apply z-10 w-8 h-8 duration-200 animate-spin stroke-slate-700;
+
+  & .path {
+    @apply animate-dash stroke-inherit;
+  }
+}
+
+
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
 }

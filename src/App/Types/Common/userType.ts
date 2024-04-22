@@ -2,12 +2,14 @@ import { UserRoleEnum } from "../../Enums";
 import { Nullable } from "./commonType";
 
 export interface UserRoleDataType {
-  id: number;
+  uuid: number;
   name: UserRoleEnum;
 }
 
+export interface UserRoleFormDataType extends Nullable<Partial<UserDataType>> {}
+
 export interface UserDataType {
-  id: number;
+  uuid: number;
   name: string;
   email: string;
   username: string;
@@ -16,4 +18,5 @@ export interface UserDataType {
 
 export interface UserFormDataType extends Nullable<Partial<UserDataType>> {
   password?: string;
+  role_uuid?: number | null;
 }
