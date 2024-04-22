@@ -19,4 +19,4 @@ const TableRowActionView = <T extends unknown>({
   );
 };
 
-export default memo(TableRowActionView);
+export default memo(TableRowActionView) as typeof TableRowActionView;
