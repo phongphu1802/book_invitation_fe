@@ -101,7 +101,7 @@ const beautifyFileSize = (size: number) => {
 
 const urlRedirect = (userCurrent: UserDataType) => {
   if (userCurrent?.role?.name === UserRoleEnum.USER) return "/my";
-  return `/${userCurrent?.role?.name}`;
+  return `/${userCurrent?.role?.name}/dashboard`;
 };
 
 export {

@@ -21,7 +21,7 @@ const AdminCategoryTable = ({
   onClickEdit,
   onClickDelete,
 }: AdminCategoryTableProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("admin");
 
   const columnHelper = useMemo(() => createColumnHelper<CategoryDataType>(), []);
 

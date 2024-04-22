@@ -10,7 +10,7 @@ const AuthRoutes = () => {
   const user = useSelector((state) => state.common.user);
   const { pathname } = window.location;
   const navigate = useNavigate();
-  const excludeRedirectPaths = useMemo(() => ["/", "error/*", "docs/*"], []);
+  const excludeRedirectPaths = useMemo(() => ["/", "error/*", "docs/*", "admin/*"], []);
 
   useEffect(() => {
     if (user && excludeRedirectPaths.some((path) => matchPath(path, pathname))) {

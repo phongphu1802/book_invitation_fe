@@ -37,6 +37,7 @@ module.exports = {
         120: "30rem",
         65: "43.25rem",
         "fit-layout": "calc(100vh - 72px)",
+        "fit-table": "calc(100vh - 260px)",
       },
       minHeight: {
         "fit-layout": "calc(100vh - 80px)",

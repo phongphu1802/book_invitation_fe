@@ -10,7 +10,7 @@ export const MY_PATH = {
 };
 
 export const ADMIN_PATH = {
-  HOME: "/admin",
+  HOME: "/admin/dashboard",
   USER: "/admin/user",
   PRODUCT: "/admin/product",
   CATEGORY: "/admin/category",
@@ -19,7 +19,7 @@ export const ADMIN_PATH = {
 };
 
 export const SYSTEM_PATH = {
-  HOME: "/system",
+  HOME: "/system/dashboard",
 };
 
 export const HOME_PATH = {
@@ -36,7 +36,7 @@ export const HOME_PATH = {
   TERM: "/term",
   NOTICE: "/notice",
   CLAIM: "/claim",
-  HOME: "/",
+  HOME: "/dashboard",
   NOT_FOUND: "*",
 };
 

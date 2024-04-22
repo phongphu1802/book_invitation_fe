@@ -33,7 +33,7 @@ const TableFooter = (
   }: TableFooterProps,
   ref: ForwardedRef<unknown>,
 ) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   const [showingFrom, setShowingFrom] = useState(1);
   const [showingTo, setShowingTo] = useState(1);
@@ -71,11 +71,14 @@ const TableFooter = (
 
   return (
     <div
-      className={twMerge("relative mt-4 flex flex-wrap items-center justify-start gap-6 md:mt-6", className)}
+      className={twMerge(
+        "px-4 sm:px-4 md:px-8 relative mt-4 flex bg-gray-50/50 py-2 flex-wrap items-center justify-start gap-6 md:mt-6",
+        className,
+      )}
     >
       {(!isLoading || !!dataLength) && (
         <>
-          <div className="flex flex-1 items-center space-x-4">
+          <div className="flex items-center flex-1 space-x-4">
             <TableFooterPageSizeSelector
               pageSize={pageSize}
               sizes={sizes}

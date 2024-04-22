@@ -28,7 +28,7 @@ const ModalContent = ({
   children,
   onClose,
 }: ModalContentProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   return (
     <>

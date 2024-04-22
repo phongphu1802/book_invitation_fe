@@ -7,6 +7,15 @@
   "addCategory": "Add Category",
   "dashboard": "Dashboard",
   "order": "Order",
+  "user": "User",
   "product": "Product",
-  "category": "Category"
+  "category": "Category",
+  "id": "ID",
+  "name": "Name",
+  "description": "Description",
+  "addCategorySuccessfully": "Add Category Successfully!!!",
+  "editCategorySuccessfully": "Edit Category Successfully!!!",
+  "editCategory": "Edit Category",
+  "deleteCategory": "Delete Category",
+  "deleteMessage": "This item will be remove. This action can't undo."
 }

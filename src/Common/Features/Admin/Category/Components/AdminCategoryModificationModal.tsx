@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { CategoryDataType, CategoryFormDataType } from "../../../../../App/Types/Common/categoryType";
 import useToast from "../../../../Hooks/useToast";
 import { setFormError } from "../../../../Utils/Helpers/errorHelper";
-import { Input } from "../../../../Components";
+import { Input, Modal, ModalProps } from "../../../../Components";
 
 interface AdminCategoryModificationModalProps extends ModalProps {
   category: CategoryDataType | null;
@@ -31,7 +31,7 @@ const AdminCategoryModificationModal = ({
   onEdited,
   ...props
 }: AdminCategoryModificationModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("admin");
   const toast = useToast();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -124,15 +124,9 @@ const AdminCategoryModificationModal = ({
       onConfirm={handleSubmit}
       {...props}
     >
+      <Input className="block w-96" control={control} disabled={isSubmitting} label={t("name")} name="name" />
       <Input
-        className="block w-full"
-        control={control}
-        disabled={isSubmitting}
-        label={t("name")}
-        name="name"
-      />
-      <Input
-        className="block w-full"
+        className="block w-96"
         control={control}
         disabled={isSubmitting}
         label={t("description")}

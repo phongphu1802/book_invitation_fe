@@ -265,8 +265,8 @@ const Table = (
             loadingType,
           })}
         {!isGridView && (
-          <div className="overflow-auto">
-            <table className="relative min-w-full">
+          <div className="overflow-auto h-fit-table">
+            <table className="relative h-full min-w-full px-4">
               <TableContentHeader headerGroups={tableHeaderGroup} hiddenColumnIds={hiddenColumnIds} />
               <TableContentBody
                 rows={tableRows}
