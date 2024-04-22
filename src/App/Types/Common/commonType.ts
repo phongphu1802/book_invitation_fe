@@ -57,6 +57,7 @@ export type ServiceDeleteFunctionType = (id: Key) => Promise<unknown>;
 export type TableOnclickFunctionType<T = unknown> = (data: T) => void;
 
 export interface ImageDataType extends Partial<File> {
+  absolute_url: string;
   url: string;
   name?: string;
   type?: string;

@@ -40,7 +40,7 @@ const CommonRoutes = () => {
   }, [excludeNotLoginPaths, navigate, pathname]);
 
   useLayoutEffect(() => {
-    if (user?.id) {
+    if (user?.uuid) {
       setIsLoading(false);
       return;
     }

@@ -54,7 +54,7 @@ const TableContentBody = (
                   <td
                     key={cell.id}
                     className={twMerge(
-                      "relative border-b border-transparent bg-transparent px-4 sm:px-4 md:px-8 py-4 text-left",
+                      "relative border-b border-transparent bg-transparent px-4 sm:px-4 md:px-8 py-4 text-left h-fit",
                       cell.column.id === "actions" && "sticky right-0",
                       cell.column.columnDef.meta?.className,
                       cell.column.columnDef.meta?.bodyClassName,

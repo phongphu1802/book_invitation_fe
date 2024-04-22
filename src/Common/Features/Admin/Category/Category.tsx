@@ -15,6 +15,7 @@ import {
   editCategory,
   getCaterories,
 } from "../../../../App/Services/App/categoryService";
+import useToast from "../../../Hooks/useToast";
 
 const Category = () => {
   const { t } = useTranslation("admin");
@@ -24,6 +25,7 @@ const Category = () => {
   const [isShowModificationModal, setIsShowModificationModal] = useState<boolean>(false);
   const [selectedCategoryId, setSelectedCategoryId] = useState<Key | null>(null);
   const [isShowDeleteModal, setIsShowDeleteModal] = useState<boolean>(false);
+  const toast = useToast();
 
   const selectedCategory = useMemo(() => {
     return categoryData.find((item) => item.uuid === selectedCategoryId) ?? null;
@@ -66,10 +68,11 @@ const Category = () => {
   const handleDelete = useCallback(async () => {
     try {
       await deleteCategory(selectedCategoryId as number);
+      toast.success(t("deleteSuccessfully"));
     } finally {
       fetchData();
     }
-  }, [selectedCategoryId, fetchData]);
+  }, [selectedCategoryId, toast, t, fetchData]);
 
   useDocumentTitle(t("categoryManagement"));
 

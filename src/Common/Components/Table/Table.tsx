@@ -266,7 +266,7 @@ const Table = (
           })}
         {!isGridView && (
           <div className="overflow-auto h-fit-table">
-            <table className="relative h-full min-w-full px-4">
+            <table className="relative min-w-full px-4 h-fit">
               <TableContentHeader headerGroups={tableHeaderGroup} hiddenColumnIds={hiddenColumnIds} />
               <TableContentBody
                 rows={tableRows}

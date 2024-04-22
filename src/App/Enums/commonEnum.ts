@@ -19,3 +19,9 @@ export enum TableImageColumnTypeEnum {
   ROUNDED = "rounded",
   BOX = "box",
 }
+
+export enum ImageUploadTypeEnum {
+  SYSTEM = "system",
+  USER = "user",
+  PRODUCT = "product",
+}

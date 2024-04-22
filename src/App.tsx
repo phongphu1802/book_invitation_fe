@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { HelmetProvider } from "react-helmet-async";
 import { ErrorBoundary as ErrorBoundaryContainer } from "react-error-boundary";
 import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import { ErrorBoundary } from "./Common/Features";
 import { LayoutDefault } from "./Common/Layout";
@@ -27,6 +28,7 @@ const App = () => {
           </Suspense>
         </ErrorBoundaryContainer>
       </HelmetProvider>
+      <ToastContainer />
     </Provider>
   );
 };
