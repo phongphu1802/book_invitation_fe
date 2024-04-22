@@ -38,3 +38,9 @@ export const ROLE_API_PATH = {
   ROLE: "role",
   ROLE_ID: (id: number) => `role/${id}`,
 };
+
+export const PRODUCT_API_PATH = {
+  PRODUCTS: "products",
+  PRODUCT: "product",
+  PRODUCT_ID: (id: number) => `product/${id}`,
+};
