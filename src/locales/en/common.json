@@ -1,0 +1,11 @@
+{
+  "delete": "Delete",
+  "edit": "Edit",
+  "view": "View",
+  "viewingFromToOf": "Viewing {{from}} to {{to}} of {{total}}",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "error": "Error",
+  "warning": "Warning",
+  "close": "Close"
+}

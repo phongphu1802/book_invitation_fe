@@ -20,3 +20,9 @@ export const AUTH_API_PATH = {
 export const COMMON_API_PATH = {
   UPLOAD_IMAGE: "v1/upload",
 };
+
+export const CATEGORY_API_PATH = {
+  CATEGORIES: "categories",
+  CATEGORY: "category",
+  CATEGORY_ID: (id: number) => `category/${id}`,
+};

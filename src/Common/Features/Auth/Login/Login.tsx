@@ -45,7 +45,7 @@ const Login = () => {
     try {
       const userData = await authService.loginWithEmailAndPassword(formData);
       setAuthToken({ token: userData.token, refreshToken: userData.refresh_token });
-      navigate("/");
+      navigate("/auth");
     } catch (error) {
       if (!isEmpty(error)) {
         setGeneralError(error as AuthFormGeneralError);

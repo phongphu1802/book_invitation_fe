@@ -25,7 +25,7 @@ const ConfirmationModal = ({
   onClose,
   ...props
 }: ConfirmationModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [confirmError, setConfirmError] = useState<string | null>(null);
@@ -100,7 +100,7 @@ const ConfirmationModal = ({
       onClose={onClose}
       {...props}
     >
-      <div className=" -my-0 pl-8 pr-2 sm:flex sm:items-start">
+      <div className="pl-8 pr-2 -my-0  sm:flex sm:items-start">
         <div
           className={twMerge(
             className,
@@ -122,12 +122,12 @@ const ConfirmationModal = ({
           )}
         </div>
       </div>
-      <div className="-mb-8  w-full mt-9 flex items-center justify-end space-x-4 rounded-b-lg bg-gray-50 px-8 py-6">
+      <div className="flex items-center justify-end w-full px-8 py-6 -mb-8 space-x-4 rounded-b-lg mt-9 bg-gray-50">
         {isShowCancelButton && (
           <Button
             type="button"
             color="light"
-            className="rounded-md border-2 border-gray-200 shadow-none ring-0"
+            className="border-2 border-gray-200 rounded-md shadow-none ring-0"
             onClick={handleClickCancelButton}
             disabled={isSubmitting}
           >
@@ -137,7 +137,7 @@ const ConfirmationModal = ({
         {isShowConfirmButton && (
           <Button
             type="button"
-            className="rounded-md border-2 border-primary-700 px-12 shadow-none ring-0 disabled:border-gray-300"
+            className="px-12 border-2 rounded-md shadow-none border-primary-700 ring-0 disabled:border-gray-300"
             disabled={isSubmitting}
             isLoading={isSubmitting}
             onClick={handleClickConfirmButton}

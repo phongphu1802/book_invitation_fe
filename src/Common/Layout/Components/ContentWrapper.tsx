@@ -52,9 +52,7 @@ const LayoutContentWrapper = ({
       )}
     >
       <Header />
-      <div
-        className={twMerge("mb-4 w-full h-fit-layout px-4 sm:px-4 md:px-8 bg-white/80 rounded-xl", className)}
-      >
+      <div className={twMerge("mb-4 w-full h-fit-layout bg-white/80 rounded-xl", className)}>
         {(title || action) && isShowHeader && <LayoutContentWrapperHeader title={title} action={action} />}
         <div className="relative">
           {tabs && (
@@ -68,7 +66,6 @@ const LayoutContentWrapper = ({
               onChange={onChangeTab}
             />
           )}
-
           {tabAction}
         </div>
         <LayoutContentWrapperBody

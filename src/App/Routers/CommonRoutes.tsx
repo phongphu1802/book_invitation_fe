@@ -19,7 +19,8 @@ const CommonRoutes = () => {
   const user = useSelector((state) => state.common.user);
   const { pathname } = window.location;
   const excludeRedirectPaths = useMemo(() => ["/", "error/*", "docs/*"], []);
-  const excludeRedirectNotLoginPaths = useMemo(() => ["/", "admin/*", "my/*", "system/*"], []);
+  const excludeNotLoginPaths = useMemo(() => ["/", "admin/*", "my/*", "system/*"], []);
+  const excludeNotRedirecPaths = useMemo(() => ["admin/*", "my/*", "system/*"], []);
   const excludeGetUserPaths = useMemo(() => [], []);
 
   const dispatch = useDispatch();
@@ -27,20 +28,16 @@ const CommonRoutes = () => {
 
   const getPublicConfigs = useCallback(async () => {
     const data = await configService.getPublicConfigs();
-
     dispatch(setConfig(data));
   }, [dispatch]);
 
   useEffect(() => {
     if (!authService.getAccessToken()) setIsLoading(false);
-    if (
-      !authService.getAccessToken() &&
-      excludeRedirectNotLoginPaths.some((path) => matchPath(path, pathname))
-    ) {
+    if (!authService.getAccessToken() && excludeNotLoginPaths.some((path) => matchPath(path, pathname))) {
       const from = pathname;
       navigate(`${AUTH_PATH.LOGIN}?redirect=${encodeURIComponent(from)}`);
     }
-  }, [excludeRedirectNotLoginPaths, navigate, pathname]);
+  }, [excludeNotLoginPaths, navigate, pathname]);
 
   useLayoutEffect(() => {
     if (user?.id) {
@@ -60,7 +57,7 @@ const CommonRoutes = () => {
       authService
         .getMe(false)
         .then((data) => {
-          navigate(urlRedirect(data));
+          if (!excludeNotRedirecPaths.some((path) => matchPath(path, pathname))) navigate(urlRedirect(data));
           return dispatch(setUser(data));
         })
         .catch(() => {
@@ -75,7 +72,7 @@ const CommonRoutes = () => {
           setIsLoading(false);
         });
     }
-  }, [dispatch, navigate, excludeGetUserPaths, excludeRedirectPaths, user, pathname]);
+  }, [dispatch, navigate, excludeGetUserPaths, excludeRedirectPaths, user, pathname, excludeNotRedirecPaths]);
 
   useLayoutEffect(() => {
     getPublicConfigs();

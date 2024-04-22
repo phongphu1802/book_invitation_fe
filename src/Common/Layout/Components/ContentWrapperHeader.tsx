@@ -8,7 +8,7 @@ export interface LayoutContentWrapperHeaderProps {
 
 const LayoutContentWrapperHeader = ({ title, action }: LayoutContentWrapperHeaderProps) => {
   return (
-    <div className="flex min-h-[88px] items-center justify-between py-6">
+    <div className="px-4 sm:px-4 md:px-8 flex min-h-[88px] items-center justify-between py-6">
       <div className="flex-1 text-lg font-semibold">{title}</div>
       {action && <div className="flex justify-end">{action}</div>}
     </div>

@@ -1,7 +1,7 @@
 import { ADMIN_PATH, MY_PATH, SYSTEM_PATH } from "../../../../App/Constants";
 import { UserRoleEnum } from "../../../../App/Enums";
 
-const generateAuthRedirectURL = (roles: UserRoleEnum[], forceRedirectURL?: string | null) => {
+const generateAuthRedirectURL = (roles: UserRoleEnum, forceRedirectURL?: string | null) => {
   if (forceRedirectURL) {
     return forceRedirectURL;
   }

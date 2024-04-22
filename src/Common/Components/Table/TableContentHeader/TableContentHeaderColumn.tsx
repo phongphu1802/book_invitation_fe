@@ -34,7 +34,7 @@ const TableContentHeaderColumn = ({
     <th
       key={id}
       className={twMerge(
-        "whitespace-nowrap border-gray-50 bg-gray-50 px-4 py-4 text-left font-semibold first:rounded-l-lg last:rounded-r-lg",
+        "whitespace-nowrap border-gray-50 bg-gray-50/50 px-4 sm:px-4 md:px-8 py-4 text-left font-semibold first:rounded-tl-lg last:rounded-tr-lg",
         id === "selector" && "sticky left-0 z-10",
         id === "actions" && "sticky right-0 z-0",
         headerClassName,
@@ -51,7 +51,7 @@ const TableContentHeaderColumn = ({
         {isSortable && (
           <TableContentHeaderSortIcon
             isSorted={isSorted}
-            className="ml-1 opacity-0 transition-transform duration-100 group-hover:opacity-100"
+            className="ml-1 transition-transform duration-100 opacity-0 group-hover:opacity-100"
           />
         )}
       </div>

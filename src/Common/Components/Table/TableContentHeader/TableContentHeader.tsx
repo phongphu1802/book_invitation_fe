@@ -14,7 +14,7 @@ const TableContentHeader = <T extends object>({
   hiddenColumnIds,
 }: TableContentHeaderProps<T>) => {
   return (
-    <thead className="overflow-hidden">
+    <thead className="sticky overflow-hidden">
       {headerGroups.map((headerGroup) => (
         <tr key={headerGroup.id} className="relative">
           {headerGroup.headers
