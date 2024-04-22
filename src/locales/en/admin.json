@@ -31,11 +31,13 @@
   "addCategory": "Add Category",
   "editCategory": "Edit Category",
   "deleteCategory": "Delete Category",
+  "deleteOrder": "Delete Order",
   "addUser": "Add User",
   "editUser": "Edit User",
   "deleteProduct": "Delete Product",
   "deleteUser": "Delete User",
   "deleteMessage": "This item will be remove. This action can't undo.",
   "chooseAvatar": "Choose Avatar",
-  "deleteSuccessfully": "Delete Successfully!!!"
+  "deleteSuccessfully": "Delete Successfully!!!",
+  "totalAmount": "Total amount"
 }

@@ -44,3 +44,9 @@ export const PRODUCT_API_PATH = {
   PRODUCT: "product",
   PRODUCT_ID: (id: number) => `product/${id}`,
 };
+
+export const ORDER_API_PATH = {
+  ORDERS: "orders",
+  ORDER: "order",
+  ORDER_ID: (id: number) => `order/${id}`,
+};
