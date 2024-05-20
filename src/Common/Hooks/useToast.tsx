@@ -30,26 +30,26 @@ const useToast = (initialConfig?: ToastOptions) => {
       switch (type) {
         case "success":
           return toast.success(<ToastMessage message={message} description={description} />, {
-            ...initialConfig,
-            ...config,
+            // ...initialConfig,
+            // ...config,
             className: "bg-green-50",
           });
         case "info":
           return toast.info(<ToastMessage message={message} description={description} />, {
-            ...initialConfig,
-            ...config,
+            // ...initialConfig,
+            // ...config,
             className: "bg-blue-50",
           });
         case "warning":
           return toast.warn(<ToastMessage message={message} description={description} />, {
-            ...initialConfig,
-            ...config,
+            // ...initialConfig,
+            // ...config,
             className: "bg-yellow-50",
           });
         case "error":
           return toast.error(<ToastMessage message={message} description={description} />, {
-            ...initialConfig,
-            ...config,
+            // ...initialConfig,
+            // ...config,
             className: "bg-red-50",
           });
         default:
