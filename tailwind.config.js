@@ -100,6 +100,9 @@ module.exports = {
       "3xl": "1600px",
       "4xl": "1920px",
     },
+    backgroundImage: {
+      content: `url(${process.env.REACT_APP_THEME})`,
+    },
   },
 
   plugins: [require("tailwind-scrollbar")],

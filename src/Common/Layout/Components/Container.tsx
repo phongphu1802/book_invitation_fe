@@ -75,7 +75,7 @@ const LayoutContainer = ({
       <div
         className={twMerge(
           "flex flex-col h-screen",
-          "bg-[url('https://apis.book-invitation.encacap.com/images/systems/1713265679.jpg')]",
+          `bg-[url('https://apis.inanthuanphat.com/images/systems/phphO5Fs81716180002.jpg')]`,
           isMatchExcludeSidebarPaths && "md:ml-0",
         )}
         ref={containerRef}

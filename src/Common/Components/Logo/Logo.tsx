@@ -16,11 +16,11 @@ const Logo = ({ className, imageClassName, id: sidebarId }: LogoProps) => {
       <div className={twMerge("inline-flex text-3xl font-semibold  text-black")}>
         {isCollapsed ? (
           <div className={twMerge("h-full text-center w-7", imageClassName)}>
-            <img className="w-full h-full" src={process.env.REACT_APP_API_BASE_LOGO_2} alt="logo 2" />
+            <img className="w-full h-full" src={process.env.REACT_APP_LOGO_ICON} alt="logo 2" />
           </div>
         ) : (
           <div className={twMerge("w-40 h-full p-2 text-center", imageClassName)}>
-            <img className="w-full h-full" src={process.env.REACT_APP_API_BASE_LOGO_1} alt="logo 1" />
+            <img className="w-full h-full" src={process.env.REACT_APP_LOGO} alt="logo 1" />
           </div>
         )}
       </div>
