@@ -20,3 +20,12 @@ export interface ContainerTrProps extends HTMLAttributes<HTMLTableRowElement> {
 
 export type ContainerProps = BaseContainerProps &
   (ContainerDivProps | ContainerFragmentProps | ContainerTrProps);
+
+export interface ContainerChartProps {
+  title?: ReactNode;
+  children: ReactNode;
+  classNameContainer?: string;
+  classNameTitle?: string;
+  valueRange?: string[];
+  onChangeRange?: (selectedItems: string[]) => void;
+}

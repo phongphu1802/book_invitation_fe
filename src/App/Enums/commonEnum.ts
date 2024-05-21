@@ -25,3 +25,9 @@ export enum ImageUploadTypeEnum {
   USER = "user",
   PRODUCT = "product",
 }
+
+export enum DashboardTypeEnum {
+  DAY = "day",
+  MONTH = "month",
+  YEAR = "year",
+}

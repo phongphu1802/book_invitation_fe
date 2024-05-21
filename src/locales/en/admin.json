@@ -39,5 +39,7 @@
   "deleteMessage": "This item will be remove. This action can't undo.",
   "chooseAvatar": "Choose Avatar",
   "deleteSuccessfully": "Delete Successfully!!!",
-  "totalAmount": "Total amount"
+  "totalAmount": "Total amount",
+  "top10Product": "Top 10 product",
+  "quantity": "Quantity"
 }

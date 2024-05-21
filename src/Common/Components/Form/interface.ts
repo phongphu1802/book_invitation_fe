@@ -10,6 +10,8 @@ import { Control } from "react-hook-form";
 import { GroupBase, Props as ReactSelectProps, SelectInstance } from "react-select";
 import { AsyncProps as ReactSelectAsyncProps } from "react-select/async";
 
+import { DatePickerTypeEnum } from "../DatePicker";
+
 export interface UncontrolledInputSkeletonProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
   children?: ReactNode;
   classNameLabel?: string;
@@ -33,15 +35,15 @@ export type FormControlType = Control<any>;
 
 export interface UncontrolledInputQuantityProps extends UncontrolledInputSkeletonProps {}
 
-// export interface UncontrolledInputDatePickerProps
-//   extends Omit<UncontrolledInputSkeletonProps, "onChange" | "value" | "type" | "name"> {
-//   name: string;
-//   value?: string | string[];
-//   type?: DatePickerTypeEnum;
-//   onChange?: (rangeDate: Date | Date[] | null) => void;
-//   minDate?: Date;
-//   maxDate?: Date;
-// }
+export interface UncontrolledInputDatePickerProps
+  extends Omit<UncontrolledInputSkeletonProps, "onChange" | "value" | "type" | "name"> {
+  name: string;
+  value?: string | string[];
+  type?: DatePickerTypeEnum;
+  onChange?: (rangeDate: Date | Date[] | null) => void;
+  minDate?: Date;
+  maxDate?: Date;
+}
 
 export interface InputProps extends UncontrolledInputProps {
   name: string;
@@ -66,10 +68,10 @@ export interface UncontrolledInputOTPProps
   onComplete?: (inputOTP: string) => void;
 }
 
-// export interface InputDatePickerProps extends UncontrolledInOTakerProps {
-//   name: string;
-//   control?: FormControlType;
-// }
+export interface InputDatePickerProps extends UncontrolledInputDatePickerProps {
+  name: string;
+  control?: FormControlType;
+}
 
 export interface InputQuantityProps extends UncontrolledInputQuantityProps {
   name: string;
