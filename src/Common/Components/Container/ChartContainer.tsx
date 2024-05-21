@@ -22,7 +22,7 @@ const ChartContainer = ({
   };
 
   return (
-    <div className={twMerge("p-5 bg-white/40 rounded-xl", classNameContainer)}>
+    <div className={twMerge("p-5 bg-white/30 rounded-xl", classNameContainer)}>
       <div className="grid grid-cols-2 mb-2">
         <div className={twMerge("font-bold text-xl line-clamp-1", classNameTitle)}>{title}</div>
         <div className="grid justify-items-end">

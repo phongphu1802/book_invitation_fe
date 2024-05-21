@@ -41,5 +41,7 @@
   "deleteSuccessfully": "Delete Successfully!!!",
   "totalAmount": "Total amount",
   "top10Product": "Top 10 product",
-  "quantity": "Quantity"
+  "top10User": "Top 10 users spending the most",
+  "quantity": "Quantity",
+  "dollar": "Dollar"
 }

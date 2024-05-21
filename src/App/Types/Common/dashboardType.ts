@@ -1,5 +1,6 @@
 import { DashboardTypeEnum } from "../../Enums";
 import { ProductDataType } from "./productType";
+import { UserDataType } from "./userType";
 
 export interface DashboardDataType {
   form_date: Date;
@@ -11,4 +12,10 @@ export interface TopProductType {
   product_uuid: number;
   total_product: string;
   product?: ProductDataType;
+}
+
+export interface TopUserType {
+  user_uuid: number;
+  total_price: string;
+  user?: UserDataType;
 }

@@ -1,7 +1,7 @@
 import { axiosInstance } from "../../../Common/Utils";
 import { DASHBOARD_API_PATH } from "../../Constants";
 import { ResponseDataType } from "../../Types/Common";
-import { DashboardDataType, TopProductType } from "../../Types/Common/dashboardType";
+import { DashboardDataType, TopProductType, TopUserType } from "../../Types/Common/dashboardType";
 
 const getTopProduct = async (data: DashboardDataType): Promise<ResponseDataType<TopProductType[]>> => {
   const response = await axiosInstance.get(DASHBOARD_API_PATH.PRODUCT, {
@@ -19,16 +19,17 @@ const getTopProduct = async (data: DashboardDataType): Promise<ResponseDataType<
   };
 };
 
-const getTopUser = async (data: DashboardDataType) => {
+const getTopUser = async (data: DashboardDataType): Promise<ResponseDataType<TopUserType[]>> => {
   const response = await axiosInstance.get(DASHBOARD_API_PATH.TOP_USER, {
     params: {
       from_date: data.form_date,
       to_date: data.to_date,
-      expand: ["dashboard__product_uuid"],
+      expand: ["dashboard__user_uuid"],
     },
   });
   return {
-    data: response.data.data,
+    data: response?.data?.data,
+    meta: response?.data?.meta,
   };
 };
 
