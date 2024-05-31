@@ -8,5 +8,14 @@
   "error": "Error",
   "warning": "Warning",
   "close": "Close",
-  "uploadError": "Upload Failed"
+  "uploadError": "Upload Failed",
+  "dateFormat": "YYYY/MM/DD",
+  "dateTimeFormat": "YYYY/MM/DD - HH:mm:ss",
+  "today": "Today",
+  "yesterday": "Yesterday",
+  "last7days": "Last 7 days",
+  "last30days": "Last 30 days",
+  "thisMonth": "This month",
+  "lastMonth": "Last month",
+  "custom": "Custom"
 }

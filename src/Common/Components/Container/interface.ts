@@ -1,5 +1,7 @@
 import { HTMLAttributes, ReactFragment, ReactNode } from "react";
 
+import { DashboardTypeEnum } from "../../../App/Enums";
+
 type ContainerAsType = "div" | "fragment" | "tr";
 
 interface BaseContainerProps {
@@ -20,3 +22,19 @@ export interface ContainerTrProps extends HTMLAttributes<HTMLTableRowElement> {
 
 export type ContainerProps = BaseContainerProps &
   (ContainerDivProps | ContainerFragmentProps | ContainerTrProps);
+
+export interface ContainerChartProps {
+  title?: ReactNode;
+  children: ReactNode;
+  classNameContainer?: string;
+  classNameTitle?: string;
+  valueRange?: string[];
+  valueType?: DashboardTypeEnum;
+  onChangeRange?: (selectedItems: string[]) => void;
+  onChangeType?: (data: DashboardTypeEnum) => void;
+}
+
+export interface ChartContainerSelectTypeProps {
+  valueType?: DashboardTypeEnum;
+  onChangeType: (data: DashboardTypeEnum) => void;
+}

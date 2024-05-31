@@ -1,5 +1,6 @@
 export { default as Checkbox } from "./Checkbox/Checkbox";
 export { default as Input } from "./Input/Input";
+export { default as InputDatePicker } from "./Input/InputDatePicker/InputDatePicker";
 export { default as InputFile } from "./Input/InputFile/InputFile";
 export { default as InputOTP } from "./Input/InputOTP/InputOTP";
 export { default as InputQuantity } from "./Input/InputQuantity/InputQuantity";

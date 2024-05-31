@@ -50,3 +50,10 @@ export const ORDER_API_PATH = {
   ORDER: "order",
   ORDER_ID: (id: number) => `order/${id}`,
 };
+
+export const DASHBOARD_API_PATH = {
+  PRODUCT: "product-statistics",
+  TOP_USER: "user-statistics",
+  PROFIT: "profit-statistics",
+  USER_REGISTER: "user-register-statistics",
+};
