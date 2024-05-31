@@ -1,5 +1,7 @@
 import { HTMLAttributes, ReactFragment, ReactNode } from "react";
 
+import { DashboardTypeEnum } from "../../../App/Enums";
+
 type ContainerAsType = "div" | "fragment" | "tr";
 
 interface BaseContainerProps {
@@ -27,5 +29,12 @@ export interface ContainerChartProps {
   classNameContainer?: string;
   classNameTitle?: string;
   valueRange?: string[];
+  valueType?: DashboardTypeEnum;
   onChangeRange?: (selectedItems: string[]) => void;
+  onChangeType?: (data: DashboardTypeEnum) => void;
+}
+
+export interface ChartContainerSelectTypeProps {
+  valueType?: DashboardTypeEnum;
+  onChangeType: (data: DashboardTypeEnum) => void;
 }

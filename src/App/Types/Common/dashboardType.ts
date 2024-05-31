@@ -19,3 +19,8 @@ export interface TopUserType {
   total_price: string;
   user?: UserDataType;
 }
+
+export interface DashboardType {
+  name: string;
+  value: number;
+}
