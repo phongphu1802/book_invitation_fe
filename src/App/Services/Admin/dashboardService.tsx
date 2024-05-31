@@ -52,12 +52,19 @@ const getProfitStatistic = async (data: DashboardDataType): Promise<ResponseData
   };
 };
 
-const getUserRegisterStatistic = async (data: DashboardDataType) => {
+const getUserRegisterStatistic = async (
+  data: DashboardDataType,
+): Promise<ResponseDataType<DashboardType[]>> => {
   const response = await axiosInstance.get(DASHBOARD_API_PATH.USER_REGISTER, {
-    data,
+    params: {
+      from_date: data.form_date,
+      to_date: data.to_date,
+      type: data.type,
+    },
   });
   return {
-    data: response.data.data,
+    data: response?.data?.data,
+    meta: response?.data?.meta,
   };
 };
 

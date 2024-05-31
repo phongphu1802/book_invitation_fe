@@ -11,16 +11,16 @@ import {
   Filler,
   Legend,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 
-import { getProfitStatistic } from "../../../../../App/Services/Admin/dashboardService";
+import { getUserRegisterStatistic } from "../../../../../App/Services/Admin/dashboardService";
 import { DashboardType } from "../../../../../App/Types/Common/dashboardType";
 import ChartContainer from "../../../../Components/Container/ChartContainer";
 import { DashboardTypeEnum } from "../../../../../App/Enums";
 
-const DashboardProfit = () => {
+const DashboardUserRegister = () => {
   const { t } = useTranslation("admin");
   const [profitStatistic, setProfitStatistic] = useState<DashboardType[]>();
   const [rangeDate, setRangeDate] = useState<string[]>([
@@ -32,8 +32,8 @@ const DashboardProfit = () => {
 
   ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 
-  const fetchProfit = useCallback(async () => {
-    const { data: profits } = await getProfitStatistic({
+  const fetchUserRegister = useCallback(async () => {
+    const { data: profits } = await getUserRegisterStatistic({
       form_date: new Date(rangeDate?.[0]),
       to_date: new Date(rangeDate?.[1]),
       type,
@@ -42,8 +42,8 @@ const DashboardProfit = () => {
   }, [rangeDate, type]);
 
   useEffect(() => {
-    fetchProfit();
-  }, [fetchProfit, rangeDate, type]);
+    fetchUserRegister();
+  }, [fetchUserRegister, rangeDate, type]);
 
   const dataChart = useMemo(() => {
     return {
@@ -53,8 +53,8 @@ const DashboardProfit = () => {
           fill: true,
           label: t("dollar"),
           data: profitStatistic?.map((data) => data?.value),
-          borderColor: "rgb(253,186,116)",
-          backgroundColor: "rgb(254,215,170)",
+          borderColor: "rgb(50,205,50)",
+          backgroundColor: "rgb(50,205,50)",
         },
       ],
     };
@@ -98,15 +98,15 @@ const DashboardProfit = () => {
 
   return (
     <ChartContainer
-      title={t("revenueStatistics")}
+      title={t("registrationStatistics")}
       onChangeRange={handleChangeRange}
       valueRange={rangeDate}
       valueType={type}
       onChangeType={handleOnChangeType}
     >
-      <Line options={options} data={dataChart} />
+      <Bar options={options} data={dataChart} />
     </ChartContainer>
   );
 };
 
-export default memo(DashboardProfit);
+export default memo(DashboardUserRegister);
