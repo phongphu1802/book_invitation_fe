@@ -42,19 +42,19 @@ const AdminProductTable = ({ data, meta, isLoading, onClickEdit, onClickDelete }
           skeleton: <TableImageColumn skeleton type={TableImageColumnTypeEnum.BOX} />,
         },
       }),
-      columnHelper.accessor((row) => row.name, {
+      columnHelper.accessor((row) => row?.name, {
         id: "name",
         header: t("name"),
       }),
-      columnHelper.accessor((row) => row.price, {
+      columnHelper.accessor((row) => row?.price, {
         id: "price",
         header: t("price"),
       }),
-      columnHelper.accessor((row) => row.description, {
+      columnHelper.accessor((row) => row?.description, {
         id: "description",
         header: t("description"),
       }),
-      columnHelper.accessor((row) => row.category.name, {
+      columnHelper.accessor((row) => row?.category?.name, {
         id: "category.name",
         header: t("category"),
       }),
