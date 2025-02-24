@@ -21,7 +21,7 @@ const DEFAULT_VALUE: TeacherFormDataType = {
   name: "",
   birthday: "",
   proper: "",
-  sex: SexTypeEnum.OTHER,
+  sex: null,
 };
 
 const AdminTeacherModificationModal = ({
@@ -150,7 +150,7 @@ const AdminTeacherModificationModal = ({
         options={sexOption}
       />
       <Input
-        className="block w-96"
+        className="w-96"
         control={control}
         disabled={isSubmitting}
         label={t("birthday")}

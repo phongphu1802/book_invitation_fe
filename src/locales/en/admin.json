@@ -55,5 +55,8 @@
   "dollar": "Dollar",
   "proper": "Proper",
   "birthday": "Birthday",
-  "sex": "Sex"
+  "sex": "Sex",
+  "men": "Men",
+  "women": "Women",
+  "other": "Other"
 }
