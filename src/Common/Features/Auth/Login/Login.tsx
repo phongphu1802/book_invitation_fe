@@ -33,7 +33,7 @@ const Login = () => {
     resolver: yupResolver(loginFormSchema(t)),
   });
 
-  const email = watch("email");
+  const username = watch("username");
 
   // const urlRedirect = useCallback((user: UserDataType) => {
   //   if (user?.role?.name === UserRoleEnum.USER) return "/my";
@@ -43,7 +43,7 @@ const Login = () => {
   const handleSubmit = useFormSubmit(async (formData) => {
     setIsSubmitting(true);
     try {
-      const userData = await authService.loginWithEmailAndPassword(formData);
+      const userData = await authService.loginWithUsernameAndPassword(formData);
       setAuthToken({ token: userData.token, refreshToken: userData.refresh_token });
       navigate("/auth");
     } catch (error) {
@@ -66,8 +66,8 @@ const Login = () => {
             <Alert title={t("loginError")} message={generalError.message} type="danger" className="mb-2">
               {generalError.code === AUTH_CODE.ACCOUNT_NOT_EXISTS && (
                 <Link
-                  to={`${AUTH_PATH.REGISTER}?email=${encodeURIComponent(
-                    email || "",
+                  to={`${AUTH_PATH.REGISTER}?username=${encodeURIComponent(
+                    username || "",
                   )}&redirect=${encodeURIComponent(searchParams.get("redirect") ?? "")}`}
                 >
                   {t("createWithEmail")}
@@ -76,8 +76,8 @@ const Login = () => {
             </Alert>
           )}
           <Input
-            name="email"
-            label={t("email")}
+            name="username"
+            label={t("username")}
             className="block text-white bg-white/10"
             classNameLabel="text-white"
             control={control}
