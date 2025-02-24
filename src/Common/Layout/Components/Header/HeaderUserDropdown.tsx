@@ -10,7 +10,7 @@ const HeaderUserDropdown = () => {
   return (
     <div className="w-10 h-10 rounded-full shadow-md">
       <Dropdown menu={<HeaderUserDropdownItem />}>
-        <Avatar alt={user?.email} className="w-10 h-10" />
+        <Avatar alt={user?.username} className="w-10 h-10" />
       </Dropdown>
     </div>
   );

@@ -25,7 +25,7 @@ const AdminOrderTable = ({ data, meta, isLoading, onClickView, onClickDelete }: 
         id: "uuid",
         header: t("id"),
       }),
-      columnHelper.accessor((row) => String(row.user.email), {
+      columnHelper.accessor((row) => String(row.user.username), {
         id: "user.email",
         header: t("email"),
       }),

@@ -7,7 +7,6 @@ import { Input, Modal, ModalProps, Select } from "../../../../Components";
 import { UserDataType, UserFormDataType, UserRoleDataType } from "../../../../../App/Types/Common";
 import { setFormError } from "../../../../Utils/Helpers/errorHelper";
 import useToast from "../../../../Hooks/useToast";
-import UploadInput from "../../../../Components/Form/UploadInput/UploadInput";
 import { getRoles } from "../../../../../App/Services/Common/roleService";
 
 interface AdminUserModificationModalProps extends ModalProps {
@@ -19,7 +18,6 @@ interface AdminUserModificationModalProps extends ModalProps {
 }
 
 const DEFAULT_VALUE: UserFormDataType = {
-  email: "",
   name: "",
   password: "",
   username: "",
@@ -162,15 +160,7 @@ const AdminUserModificationModal = ({
         type="password"
         autoSave="off"
       />
-      <Input
-        className="block w-96"
-        control={control}
-        disabled={isSubmitting}
-        label={t("email")}
-        name="email"
-      />
       <Input className="block w-96" control={control} disabled={isSubmitting} label={t("name")} name="name" />
-
       <Select
         name="role_uuid"
         className="w-96"
@@ -178,16 +168,6 @@ const AdminUserModificationModal = ({
         control={control}
         isDisabled={isSubmitting}
         options={roleOption}
-      />
-
-      <UploadInput
-        containerClassName="w-full"
-        name="avatar"
-        control={control}
-        disabled={isSubmitting}
-        multiple={false}
-        label={t("avatar")}
-        placeholder={t("chooseAvatar")}
       />
     </Modal>
   );

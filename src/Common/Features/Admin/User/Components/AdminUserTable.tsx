@@ -39,10 +39,6 @@ const AdminUserTable = ({ data, meta, isLoading, onClickEdit, onClickDelete }: A
         id: "username",
         header: t("username"),
       }),
-      columnHelper.accessor((row) => row.email, {
-        id: "email",
-        header: t("email"),
-      }),
       columnHelper.accessor((row) => row.name, {
         id: "name",
         header: t("name"),
