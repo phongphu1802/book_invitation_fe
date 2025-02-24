@@ -71,11 +71,11 @@ const Teacher = () => {
   const handleDelete = useCallback(async () => {
     try {
       await deleteTeacher(selectedTeacherId as number);
-      toast.success("deleteSuccessfully");
+      toast.success(t("deleteSuccessfully"));
     } finally {
       fetchData();
     }
-  }, [selectedTeacherId, toast, fetchData]);
+  }, [selectedTeacherId, toast, t, fetchData]);
 
   useDocumentTitle(t("teacherManagement"));
 

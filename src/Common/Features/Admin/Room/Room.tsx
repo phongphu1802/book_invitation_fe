@@ -64,11 +64,11 @@ const Room = () => {
   const handleDelete = useCallback(async () => {
     try {
       await deleteRoom(selectedProductId as number);
-      toast.success("deleteSuccessfully");
+      toast.success(t("deleteSuccessfully"));
     } finally {
       fetchData();
     }
-  }, [selectedProductId, toast, fetchData]);
+  }, [selectedProductId, toast, t, fetchData]);
 
   useDocumentTitle(t("roomManagement"));
 
