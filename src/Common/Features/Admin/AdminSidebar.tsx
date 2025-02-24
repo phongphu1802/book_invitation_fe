@@ -1,6 +1,12 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { MdOutlineCategory, MdOutlineLocalOffer, MdOutlineShoppingCart } from "react-icons/md";
+import {
+  MdOutlineCategory,
+  MdOutlineLocalOffer,
+  MdOutlineShoppingCart,
+  MdFace3,
+  MdMeetingRoom,
+} from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
 
 import LayoutSidebarItem from "../../Layout/Components/Sidebar/Item";
@@ -17,12 +23,8 @@ const AdminSidebar = () => {
         text={t("dashboard")}
         to={ADMIN_PATH.DASHBOARD}
       />
-      <LayoutSidebarItem
-        id="teacher"
-        icon={<MdOutlineShoppingCart />}
-        text={t("teacher")}
-        to={ADMIN_PATH.TEACHER}
-      />
+      <LayoutSidebarItem id="teacher" icon={<MdFace3 />} text={t("teacher")} to={ADMIN_PATH.TEACHER} />
+      <LayoutSidebarItem id="room" icon={<MdMeetingRoom />} text={t("room")} to={ADMIN_PATH.ROOM} />
       <LayoutSidebarItem
         id="product"
         icon={<MdOutlineLocalOffer />}

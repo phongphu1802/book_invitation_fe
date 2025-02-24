@@ -51,6 +51,12 @@ export const TEACHER_API_PATH = {
   TEACHER_ID: (id: number) => `teacher/${id}`,
 };
 
+export const ROOM_API_PATH = {
+  ROOMS: "rooms",
+  ROOM: "room",
+  ROOM_ID: (id: number) => `room/${id}`,
+};
+
 export const ORDER_API_PATH = {
   ORDERS: "orders",
   ORDER: "order",
