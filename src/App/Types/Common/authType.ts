@@ -4,7 +4,7 @@ export interface AuthTokenType {
 }
 
 export interface AuthLoginFormDataType {
-  email: string;
+  username: string;
   password: string;
 }
 

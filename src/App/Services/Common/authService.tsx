@@ -20,7 +20,7 @@ const getMe = async (isRedirectWhenError?: boolean): Promise<UserDataType> => {
   return response.data.data;
 };
 
-const loginWithEmailAndPassword = async (data: AuthLoginFormDataType) => {
+const loginWithUsernameAndPassword = async (data: AuthLoginFormDataType) => {
   const response = await axiosInstance.post(AUTH_API_PATH.LOGIN, data);
   return response.data.data;
 };
@@ -35,12 +35,12 @@ const forgetPassword = async (email: string) =>
     setTimeout(() => resolve(email), 1000);
   });
 
-const resetPassword = async (email: string, data: AuthResetPasswordFormDataType) =>
+const resetPassword = async (username: string, data: AuthResetPasswordFormDataType) =>
   new Promise((resolve) => {
     setTimeout(
       () =>
         resolve({
-          email,
+          username,
           ...data,
         }),
       1000,
@@ -115,7 +115,7 @@ export {
   getMe,
   getRefreshToken,
   logOut,
-  loginWithEmailAndPassword,
+  loginWithUsernameAndPassword,
   refreshAccessToken,
   register,
   removeAuthToken,
