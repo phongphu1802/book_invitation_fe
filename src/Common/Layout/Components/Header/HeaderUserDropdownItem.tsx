@@ -44,7 +44,7 @@ const HeaderUserDropdownItem = ({ onClick }: HeaderUserDropdownItemProps) => {
             {user?.name}
           </Link>
           <Link to="profile" className="mt-1 text-sm break-all line-clamp-1 group-hover:text-primary-500">
-            {user?.email}
+            {user?.username}
           </Link>
         </div>
       </div>

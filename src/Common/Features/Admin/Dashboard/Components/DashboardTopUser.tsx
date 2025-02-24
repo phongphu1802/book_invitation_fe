@@ -33,7 +33,7 @@ const DashboardTopUser = () => {
 
   const dataChart = useMemo(() => {
     return {
-      labels: topUser?.map((data) => data?.user?.email),
+      labels: topUser?.map((data) => data?.user?.username),
       datasets: [
         {
           label: t("dollar"),

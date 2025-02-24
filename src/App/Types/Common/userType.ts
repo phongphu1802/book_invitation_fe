@@ -11,7 +11,6 @@ export interface UserRoleFormDataType extends Nullable<Partial<UserRoleDataType>
 export interface UserDataType extends BaseDataType {
   uuid: number;
   name: string;
-  email: string;
   username: string;
   role: UserRoleDataType;
 }
