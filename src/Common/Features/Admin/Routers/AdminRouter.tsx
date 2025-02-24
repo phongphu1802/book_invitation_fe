@@ -9,6 +9,7 @@ import Order from "../Order/Order";
 import Product from "../Product/Product";
 import User from "../User/User";
 import Teacher from "../Teacher/Teacher";
+import Room from "../Room/Room";
 
 const AdminRouter = () => {
   return (
@@ -21,6 +22,7 @@ const AdminRouter = () => {
         <Route path="product" element={<Product />} />
         <Route path="user" element={<User />} />
         <Route path="teacher" element={<Teacher />} />
+        <Route path="room" element={<Room />} />
       </Routes>
     </LayoutContainer>
   );

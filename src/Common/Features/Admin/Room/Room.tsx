@@ -2,62 +2,55 @@ import { useTranslation } from "react-i18next";
 import { Key, useCallback, useEffect, useMemo, useState } from "react";
 
 import { LayoutContentWrapper } from "../../../Layout";
-import AdminTeacherHeaderAction from "./Components/AdminTeacherHeaderAction";
-import AdminTeacherTable from "./Components/AdminTeacherTable";
-import AdminTeacherModificationModal from "./Components/AdminTeacherModificationModal";
+import AdminRoomHeaderAction from "./Components/AdminRoomHeaderAction";
+import AdminRoomTable from "./Components/AdminRoomTable";
+import AdminRoomModificationModal from "./Components/AdminRoomModificationModal";
 import { ConfirmationModal } from "../../../Components";
-import { TeacherDataType } from "../../../../App/Types/Common/teacherType";
+import { RoomDataType } from "../../../../App/Types/Common/roomType";
 import { ResponseMetaType } from "../../../../App/Types/Common";
-import {
-  createTeacher,
-  deleteTeacher,
-  editTeacher,
-  getTeachers,
-} from "../../../../App/Services/App/teacherService";
+import { createRoom, deleteRoom, editRoom, getRooms } from "../../../../App/Services/App/roomService";
 import { useDocumentTitle } from "../../../Hooks";
 import useToast from "../../../Hooks/useToast";
 
-const Teacher = () => {
+const Room = () => {
   const { t } = useTranslation("admin");
 
-  const [teacherData, setTeacherData] = useState<TeacherDataType[]>([]);
+  const [roomData, setRoomData] = useState<RoomDataType[]>([]);
   const [meta, setMeta] = useState<ResponseMetaType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isShowModificationModal, setIsShowModificationModal] = useState<boolean>(false);
-  const [selectedTeacherId, setSelectedTeacherId] = useState<Key | null>(null);
+  const [selectedProductId, setSelectedProductId] = useState<Key | null>(null);
   const [isShowDeleteModal, setIsShowDeleteModal] = useState<boolean>(false);
   const toast = useToast();
 
   const selectedProduct = useMemo(() => {
-    return teacherData.find((item) => item.uuid === selectedTeacherId) ?? null;
-  }, [selectedTeacherId, teacherData]);
+    return roomData.find((item) => item.uuid === selectedProductId) ?? null;
+  }, [selectedProductId, roomData]);
 
   const handleClickAddButton = useCallback(() => {
     setIsShowModificationModal(true);
   }, []);
 
   const handleClickEditButton = useCallback((id?: Key) => {
-    setSelectedTeacherId(id ?? null);
+    setSelectedProductId(id ?? null);
     setIsShowModificationModal(true);
   }, []);
 
   const handleCloseModal = useCallback(() => {
     setIsShowModificationModal(false);
     setIsShowDeleteModal(false);
-    setSelectedTeacherId(null);
+    setSelectedProductId(null);
   }, []);
 
   const handleClickDeleteButton = useCallback((id?: Key) => {
-    setSelectedTeacherId(id ?? null);
+    setSelectedProductId(id ?? null);
     setIsShowDeleteModal(true);
   }, []);
 
   const fetchData = useCallback(async () => {
     try {
-      const { data, meta: metaData } = await getTeachers({
-        expand: ["product__category_uuid"],
-      });
-      setTeacherData(data);
+      const { data, meta: metaData } = await getRooms();
+      setRoomData(data);
       setMeta(metaData);
     } finally {
       setIsLoading(false);
@@ -70,39 +63,39 @@ const Teacher = () => {
 
   const handleDelete = useCallback(async () => {
     try {
-      await deleteTeacher(selectedTeacherId as number);
+      await deleteRoom(selectedProductId as number);
       toast.success("deleteSuccessfully");
     } finally {
       fetchData();
     }
-  }, [selectedTeacherId, toast, fetchData]);
+  }, [selectedProductId, toast, fetchData]);
 
-  useDocumentTitle(t("teacherManagement"));
+  useDocumentTitle(t("roomManagement"));
 
   return (
     <LayoutContentWrapper
-      title={<>{t("teacherManagement")}</>}
+      title={<>{t("roomManagement")}</>}
       id="adminSidebar"
-      action={<AdminTeacherHeaderAction onClickAdd={handleClickAddButton} />}
+      action={<AdminRoomHeaderAction onClickAdd={handleClickAddButton} />}
     >
-      <AdminTeacherTable
-        data={teacherData}
+      <AdminRoomTable
+        data={roomData}
         meta={meta}
         isLoading={isLoading}
         onClickEdit={handleClickEditButton}
         onClickDelete={handleClickDeleteButton}
       />
-      <AdminTeacherModificationModal
+      <AdminRoomModificationModal
         isOpen={isShowModificationModal}
-        teacher={selectedProduct}
-        onCreate={createTeacher}
+        room={selectedProduct}
+        onCreate={createRoom}
         onCreated={fetchData}
-        onEdit={editTeacher}
+        onEdit={editRoom}
         onEdited={fetchData}
         onClose={handleCloseModal}
       />
       <ConfirmationModal
-        title={t("deleteTeacher")}
+        title={t("deleteProduct")}
         message={t("deleteMessage")}
         isOpen={isShowDeleteModal}
         status="danger"
@@ -113,4 +106,4 @@ const Teacher = () => {
   );
 };
 
-export default Teacher;
+export default Room;

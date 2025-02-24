@@ -6,3 +6,4 @@ export * as uploadService from "./Common/uploadService";
 export * as adminUserService from "./Admin/userService";
 export * as productService from "./App/productService";
 export * as teacherService from "./App/teacherService";
+export * as roomService from "./App/roomService";
