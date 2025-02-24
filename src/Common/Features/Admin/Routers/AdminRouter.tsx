@@ -8,6 +8,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import Order from "../Order/Order";
 import Product from "../Product/Product";
 import User from "../User/User";
+import Teacher from "../Teacher/Teacher";
 
 const AdminRouter = () => {
   return (
@@ -19,6 +20,7 @@ const AdminRouter = () => {
         <Route path="order" element={<Order />} />
         <Route path="product" element={<Product />} />
         <Route path="user" element={<User />} />
+        <Route path="teacher" element={<Teacher />} />
       </Routes>
     </LayoutContainer>
   );

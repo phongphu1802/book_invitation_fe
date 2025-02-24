@@ -31,3 +31,9 @@ export enum DashboardTypeEnum {
   MONTH = "month",
   YEAR = "year",
 }
+
+export enum SexTypeEnum {
+  WOMEN = "women",
+  MEN = "men",
+  OTHER = "other",
+}

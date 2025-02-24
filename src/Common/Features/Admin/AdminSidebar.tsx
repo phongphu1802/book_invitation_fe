@@ -18,10 +18,10 @@ const AdminSidebar = () => {
         to={ADMIN_PATH.DASHBOARD}
       />
       <LayoutSidebarItem
-        id="order"
+        id="teacher"
         icon={<MdOutlineShoppingCart />}
-        text={t("order")}
-        to={ADMIN_PATH.ORDER}
+        text={t("teacher")}
+        to={ADMIN_PATH.TEACHER}
       />
       <LayoutSidebarItem
         id="product"
