@@ -60,12 +60,10 @@ export const layoutSidebarIsCollapsedSelector = (id: string) =>
 export const userRoleSelector = createSelector(
   (state: RootState) => state.common.user,
   (user) => {
-    const isSystem = user?.role?.name === UserRoleEnum.SYSTEM;
     const isAdmin = user?.role?.name === UserRoleEnum.ADMIN;
     const isUser = user?.role?.name === UserRoleEnum.USER;
 
     return {
-      isSystem,
       isAdmin,
       isUser,
     };

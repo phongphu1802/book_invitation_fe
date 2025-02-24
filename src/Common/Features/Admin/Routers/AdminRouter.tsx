@@ -3,13 +3,11 @@ import { Route, Routes } from "react-router-dom";
 
 import { LayoutContainer } from "../../../Layout";
 import AdminSidebar from "../AdminSidebar";
-import Category from "../Category/Category";
 import Dashboard from "../Dashboard/Dashboard";
-import Order from "../Order/Order";
-import Product from "../Product/Product";
 import User from "../User/User";
 import Teacher from "../Teacher/Teacher";
 import Room from "../Room/Room";
+import Role from "../Role/Role";
 
 const AdminRouter = () => {
   return (
@@ -17,12 +15,10 @@ const AdminRouter = () => {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="category" element={<Category />} />
-        <Route path="order" element={<Order />} />
-        <Route path="product" element={<Product />} />
         <Route path="user" element={<User />} />
         <Route path="teacher" element={<Teacher />} />
         <Route path="room" element={<Room />} />
+        <Route path="role" element={<Role />} />
       </Routes>
     </LayoutContainer>
   );
