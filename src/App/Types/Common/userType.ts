@@ -1,14 +1,14 @@
 import { UserRoleEnum } from "../../Enums";
-import { Nullable } from "./commonType";
+import { BaseDataType, Nullable } from "./commonType";
 
-export interface UserRoleDataType {
+export interface UserRoleDataType extends BaseDataType {
   uuid: number;
   name: UserRoleEnum;
 }
 
-export interface UserRoleFormDataType extends Nullable<Partial<UserDataType>> {}
+export interface UserRoleFormDataType extends Nullable<Partial<UserRoleDataType>> {}
 
-export interface UserDataType {
+export interface UserDataType extends BaseDataType {
   uuid: number;
   name: string;
   email: string;

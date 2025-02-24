@@ -18,6 +18,7 @@ export const ADMIN_PATH = {
   DASHBOARD: "/admin/dashboard",
   TEACHER: "/admin/teacher",
   ROOM: "/admin/room",
+  ROLE: "/admin/role",
 };
 
 export const SYSTEM_PATH = {
