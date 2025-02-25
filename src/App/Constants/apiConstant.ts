@@ -45,6 +45,12 @@ export const PRODUCT_API_PATH = {
   PRODUCT_ID: (id: number) => `product/${id}`,
 };
 
+export const COURSE_API_PATH = {
+  COURSES: "courses",
+  COURSE: "course",
+  COURSE_ID: (id: number) => `course/${id}`,
+};
+
 export const TEACHER_API_PATH = {
   TEACHERS: "teachers",
   TEACHER: "teacher",

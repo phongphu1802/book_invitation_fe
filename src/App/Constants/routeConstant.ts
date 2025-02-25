@@ -19,6 +19,7 @@ export const ADMIN_PATH = {
   TEACHER: "/admin/teacher",
   ROOM: "/admin/room",
   ROLE: "/admin/role",
+  COURSE: "/admin/course",
 };
 
 export const SYSTEM_PATH = {
