@@ -67,6 +67,7 @@ const Table = (
   }: TableProps,
   ref: ForwardedRef<unknown>,
 ) => {
+  console.log(meta);
   const config = useConfig();
 
   const paginationRef = useRef<PaginationRefType | null>(null);

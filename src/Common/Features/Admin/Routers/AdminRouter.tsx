@@ -9,6 +9,7 @@ import Teacher from "../Teacher/Teacher";
 import Room from "../Room/Room";
 import Role from "../Role/Role";
 import Course from "../Course/Course";
+import Student from "../Student/Student";
 
 const AdminRouter = () => {
   return (
@@ -21,6 +22,7 @@ const AdminRouter = () => {
         <Route path="room" element={<Room />} />
         <Route path="role" element={<Role />} />
         <Route path="course" element={<Course />} />
+        <Route path="student" element={<Student />} />
       </Routes>
     </LayoutContainer>
   );

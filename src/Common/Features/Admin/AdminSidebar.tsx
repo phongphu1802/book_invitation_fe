@@ -6,6 +6,7 @@ import {
   MdMeetingRoom,
   MdOutlinePeopleAlt,
   MdFolderCopy,
+  MdCoPresent,
 } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
 
@@ -26,6 +27,7 @@ const AdminSidebar = () => {
       <LayoutSidebarItem id="teacher" icon={<MdLibraryBooks />} text={t("teacher")} to={ADMIN_PATH.TEACHER} />
       <LayoutSidebarItem id="room" icon={<MdMeetingRoom />} text={t("room")} to={ADMIN_PATH.ROOM} />
       <LayoutSidebarItem id="course" icon={<MdFolderCopy />} text={t("course")} to={ADMIN_PATH.COURSE} />
+      <LayoutSidebarItem id="student" icon={<MdCoPresent />} text={t("student")} to={ADMIN_PATH.STUDENT} />
       <LayoutSidebarItem id="user" icon={<AiOutlineUser />} text={t("user")} to={ADMIN_PATH.USER} />
       <LayoutSidebarItem id="role" icon={<MdOutlinePeopleAlt />} text={t("role")} to={ADMIN_PATH.ROLE} />
     </LayoutSidebar>

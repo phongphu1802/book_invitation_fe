@@ -8,3 +8,4 @@ export * as productService from "./App/productService";
 export * as teacherService from "./App/teacherService";
 export * as roomService from "./App/roomService";
 export * as courseService from "./App/courseService";
+export * as studentService from "./App/studentService";
