@@ -37,3 +37,8 @@ export enum SexTypeEnum {
   MEN = "men",
   OTHER = "other",
 }
+
+export enum StatusEnum {
+  STOP = "stop",
+  CONTINUE = "continue",
+}
